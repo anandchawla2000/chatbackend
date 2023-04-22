@@ -11,14 +11,14 @@ const io = new Server(httpServer, {
 });
 const users = {};
 io.on("connection", (socket) => {
-  // console.log(socket.id)
+  console.log(socket.id)
   socket.on("new-user-joined", (name) => {
     users[socket.id] = name;
     // console.log(users);
   });
 
   socket.on("send-message", (message) => {
-    // console.log(message);
+    console.log(message);
     socket.broadcast.emit("receive-message", message);
   });
 });
