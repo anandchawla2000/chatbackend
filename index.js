@@ -1,10 +1,10 @@
 require("dotenv").config();
 const port = process.env.PORT||5000;
-const { createServer } = require("http");
+const { createServer } = require("https");
 const { Server } = require("socket.io");
 
-const httpServer = createServer();
-const io = new Server(httpServer, {
+const httpsServer = createServer();
+const io = new Server(httpsServer, {
   cors: {
     origin: "https://anand-chat.netlify.app/",
   },
@@ -22,6 +22,6 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("receive-message", message);
   });
 });
-httpServer.listen(port,()=>{
+httpsServer.listen(port,()=>{
     console.log(port)
 });
