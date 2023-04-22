@@ -1,6 +1,6 @@
 require("dotenv").config();
 const port = process.env.PORT||5000;
-const { createServer } = require("https");
+const { createServer } = require("http");
 const { Server } = require("socket.io");
 
 const httpsServer = createServer();
