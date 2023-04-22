@@ -6,7 +6,7 @@ const { Server } = require("socket.io");
 const httpsServer = createServer();
 const io = new Server(httpsServer, {
   cors: {
-    origin: "https://anand-chat.netlify.app",
+    origin: "*",
   },
 });
 const users = {};
